@@ -5,7 +5,7 @@
 
 
 == Chart component's attributes ==
-|| *attribute* || *description* || *mondatory* ||
+|| *Attribute* || *Description* || *Mondatory* ||
 || width || chart width  || true || 
 || height || chart height || true || 
 || yticks || Y axis value labels || false ||
