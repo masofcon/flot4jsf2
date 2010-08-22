@@ -18,6 +18,8 @@ public class DataSerializer {
 			}
 			result = "[" + result.concat("]");
 			return result;
+		} else if (object instanceof String) {
+			return object.toString();
 		}
 		return result;
 	}
