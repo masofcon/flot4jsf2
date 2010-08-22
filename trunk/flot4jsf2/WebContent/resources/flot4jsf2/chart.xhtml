@@ -9,11 +9,15 @@
 		<composite:attribute name="width" required="true" />
 		<composite:attribute name="height" required="true" />
 		
-		<composite:attribute name="yticks" required="true" />
-		<composite:attribute name="ymin" required="true" />
-		<composite:attribute name="ymax" required="true" />
+		<composite:attribute name="yticks" required="false" />
+		<composite:attribute name="ymin" required="false" />
+		<composite:attribute name="ymax" required="false" />
 		
 		<composite:attribute name="data" required="false" />
+		
+		<composite:attribute name="type" required="true" />
+		
+		<composite:attribute name="label" required="false" />
 	</composite:interface>
 
 	<!-- IMPLEMENATION -->
@@ -26,25 +30,41 @@
 
 		<script
 			language="javascript" type="text/javascript"> 
-
 $(function () {
+	
+	fdata=#{dataSerializer.serialize(cc.attrs.data)};
+	flabel="#{cc.attrs.label}";
 
-	var fdata = #{cc.attrs.data}; 
+	yticks= "#{cc.attrs.ticks}";
+	if (yticks=="") yticks=null;
 
+	ymin = "#{cc.attrs.ymin}";
+	if (ymin=="") ymin=null;
+
+	ymax = "#{cc.attrs.ymax}";
+	if (ymax=="") ymax=null;
+
+	ftype = "#{cc.attrs.type}";
+		fseries = new Object();
+	if (ftype=="lines")
+		fseries.lines= {show:true};
+	
     $.plot($("##{cc.clientId}"), [
-        { label: "sin(x)",  data: fdata}
+        { label: flabel,  data: fdata}
     ], {
-        series: {
-    		lines: { show: true , fill: true},
-            points: { show: true }
-        },
-        xaxis: {
-            ticks: [0, [Math.PI/2, "\u03c0/2"], [Math.PI, "\u03c0"], [Math.PI * 3/2, "3\u03c0/2"], [Math.PI * 2, "2\u03c0"]]
-        },
+        //series: {
+    		//lines: { show: true , fill: true},
+            //points: { show: true }
+    	//	bars: { show: true }
+        //},
+        series: fseries,
+        //xaxis: {
+            //ticks: [0, [Math.PI/2, "\u03c0/2"], [Math.PI, "\u03c0"], [Math.PI * 3/2, "3\u03c0/2"], [Math.PI * 2, "2\u03c0"]]
+        //},
         yaxis: {
-            ticks: 10,
-            min: "#{cc.attrs.ymin}",
-            max: "#{cc.attrs.ymax}"
+            ticks: yticks,
+            min: ymin,
+            max: ymax
         },
         grid: {
             backgroundColor: { colors: ["#fff", "#eee"] }
