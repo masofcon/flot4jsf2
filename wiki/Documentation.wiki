@@ -3,8 +3,8 @@
 
 = API =
 
-*Chart component*
-* Chart component's attributes *
+
+== Chart component's attributes ==
 || *attribute* || *description* || *mondatory* ||
 || width || chart width  || true || 
 || height || chart height || true || 
@@ -18,3 +18,54 @@
 || color || color of chart || false ||
 || fill || fill area (for more detail see flot API) || false ||
 || steps || step line (only for line type)  || false ||
+
+
+== Supported chart types ==
+
+  * lines
+  * dots
+  * bars
+
+
+== Data format ==
+
+Data is represented as 2-dimentional matrix.
+
+You can write it directly
+{{{
+<f4j2:chart width="320" height="240" *data="[[-2,-5],[0,3],[6,-4],[7,5]]"* type="lines" />
+}}}
+
+or get it from bean
+
+{{{
+<f4j2:chart width="320" height="240" *data="#{sampleData.data}"* type="lines" />
+}}}
+
+{{{
+public class SampleData implements Serializable {
+	private Double[][] data;
+
+	private void generateData() {
+		int n = 10;
+		result = new Double[2][n];
+		for (int i = 0; i < n; i++) {
+			result[0][i] = Math.random() * 10;
+			result[1][i] = Math.random() * 10;
+		}
+	}
+
+	public Double[][] getData() {
+		generateData();
+		return data;
+	}
+
+	public void setData(Double[][] data) {
+		this.data = data;
+	}
+
+}
+
+}}}
+
+for more ditails see [http://code.google.com/p/flot4jsf2/w/examples examples]
