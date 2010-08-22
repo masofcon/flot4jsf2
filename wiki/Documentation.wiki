@@ -25,6 +25,7 @@
   * lines
   * dots
   * bars
+  * mixing of types above
 
 
 == Data format ==
