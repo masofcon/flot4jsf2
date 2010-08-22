@@ -1,0 +1,1 @@
+#summary Examples of flot4jsf2 usage.
