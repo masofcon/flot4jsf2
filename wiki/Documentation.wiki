@@ -4,8 +4,8 @@
 = API =
 
 *Chart component*
-|| Chart component's attributes ||
-|| attribute || description || mondatory ||
+* Chart component's attributes *
+|| *attribute* || *description* || *mondatory* ||
 || width || chart width  || true || 
 || height || chart height || true || 
 || yticks || Y axis value labels || false ||
@@ -18,5 +18,3 @@
 || color || color of chart || false ||
 || fill || fill area (for more detail see flot API) || false ||
 || steps || step line (only for line type)  || false ||
-
-
