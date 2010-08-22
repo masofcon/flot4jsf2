@@ -9,8 +9,8 @@
 
 <h:body>
 	Graph
-	<f4j2:lines width="640" height="480" ymin="1" ymax="6" yticks="10"
-		data="[[0,1],[1,5],[2,2],[3,4],[4,5]]" />
+	<f4j2:chart width="640" height="480" data="#{simpleData.data}"
+		label="Random data" type="lines"/>
 
 </h:body>
 </html>
