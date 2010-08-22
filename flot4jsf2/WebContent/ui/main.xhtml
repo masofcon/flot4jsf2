@@ -8,9 +8,29 @@
 </h:head>
 
 <h:body>
-	Graph
-	<f4j2:chart width="640" height="480" data="#{simpleData.data}"
-		label="Random data" type="lines"/>
+	<H1>Supported charts</H1>
+	<h:panelGrid columns="3" cellpadding="2">
+		<f4j2:chart width="320" height="240"
+			data="#{sampleData.getBarsData()}" type="bars" color="red"
+			fill="true" />
 
+		<f4j2:chart width="320" height="240"
+			data="[[-2,-5],[0,3],[6,-4],[7,5]]"
+			label="data='[[-2,-5],[0,3],[6,-4],[7,5]]'" type="lines"
+			color="green" />
+
+		<f4j2:chart width="320" height="240" data="#{sampleData.data}"
+			label="Random data" type="dots" />
+
+		<f4j2:chart width="320" height="240" data="#{sampleData.getX3(-3,3)}"
+			type="lines" steps="true" label="step line" />
+
+		<f4j2:chart width="320" height="240" data="#{sampleData.getX3(-3,3)}"
+			label="x^3" type="dots, lines" color="blue" />
+
+		<f4j2:chart width="320" height="240"
+			data="#{sampleData.getSinus(-4,4)}" label="sin" type="lines"
+			color="yellow" fill="true" />
+	</h:panelGrid>
 </h:body>
 </html>
