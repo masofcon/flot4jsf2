@@ -68,4 +68,4 @@ public class SampleData implements Serializable {
 
 }}}
 
-for more ditails see [http://code.google.com/p/flot4jsf2/w/examples examples]
+for more ditails see [http://code.google.com/p/flot4jsf2/wiki/Examples examples]
