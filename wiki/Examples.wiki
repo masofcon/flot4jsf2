@@ -1,1 +1,63 @@
 #summary Examples of flot4jsf2 usage.
+#labels examples,chart,charttypes,barchart,linechart,dotschart
+
+= EXAMPLES =
+
+=== Bar chart ===
+
+[http://flot4jsf2.googlecode.com/svn/wiki/images/barsFilled.png]
+
+Code example:
+{{{
+<f4j2:chart width="320" height="240" data="#{sampleData.getBarsData()}" type="bars" color="red" fill="true" />
+}}}
+
+----
+=== Line chart ===
+
+[http://flot4jsf2.googlecode.com/svn/wiki/images/lines.png]
+
+Code example:
+{{{
+<f4j2:chart width="320" height="240" data="#{sampleData.getSinus(-4,4)}" label="sin" type="lines" color="yellow" />
+}}}
+
+----
+=== Dots chart ===
+
+[http://flot4jsf2.googlecode.com/svn/wiki/images/dots.png]
+
+Code example:
+{{{
+<f4j2:chart width="320" height="240" data="#{sampleData.data}" label="Random data" type="dots" />
+}}}
+
+----
+=== Line chart (steps style)===
+
+[http://flot4jsf2.googlecode.com/svn/wiki/images/stepline.png]
+
+Code example:
+{{{
+<f4j2:chart width="320" height="240" data="#{sampleData.getX3(-3,3)}" type="lines" steps="true" label="step line" />
+}}}
+
+----
+=== Line chart (fill style, direct data input)===
+
+[http://flot4jsf2.googlecode.com/svn/wiki/images/fillline.png]
+
+Code example:
+{{{
+<f4j2:chart width="320" height="240" data="[[-2,-5],[0,3],[6,-4],[7,5]]" label="data='[[-2,-5],[0,3],[6,-4],[7,5]]'" type="lines" color="green" fill="true" />
+}}}
+
+----
+=== Line&dots chart===
+
+[http://flot4jsf2.googlecode.com/svn/wiki/images/dotsline.png]
+
+Code example:
+{{{
+<f4j2:chart width="320" height="240" data="#{sampleData.getX3(-3,3)}" label="x^3" type="dots, lines" color="blue" />
+}}}
