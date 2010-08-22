@@ -1,0 +1,5 @@
+Flot for JSF 2.0
+Charting components for JSF 2.0
+Copyright 2010 George Suaridze.
+
+This product includes software developed by George Suaridze.
