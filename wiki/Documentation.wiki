@@ -1,3 +1,22 @@
 #summary flot4jsf2 API
+#labels API
 
 = API =
+
+*Chart component*
+|| Chart component's attributes ||
+|| attribute || description || mondatory ||
+|| width || chart width  || true || 
+|| height || chart height || true || 
+|| yticks || Y axis value labels || false ||
+|| ymin || min Y axis value || false ||
+|| ymax || max Y axis value  || false ||
+|| xticks || X axis values labels || false ||
+|| data || data (format of data see below) || false ||
+|| type || type of chart (see below) || true ||
+|| label || legend text  || false ||
+|| color || color of chart || false ||
+|| fill || fill area (for more detail see flot API) || false ||
+|| steps || step line (only for line type)  || false ||
+
+
