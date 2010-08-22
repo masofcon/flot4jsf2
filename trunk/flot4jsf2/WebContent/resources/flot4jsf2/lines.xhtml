@@ -1,0 +1,56 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:composite="http://java.sun.com/jsf/composite">
+
+	<!-- INTERFACE -->
+	<composite:interface>
+		<composite:attribute name="width" required="true" />
+		<composite:attribute name="height" required="true" />
+		
+		<composite:attribute name="yticks" required="true" />
+		<composite:attribute name="ymin" required="true" />
+		<composite:attribute name="ymax" required="true" />
+		
+		<composite:attribute name="data" required="false" />
+	</composite:interface>
+
+	<!-- IMPLEMENATION -->
+	<composite:implementation>
+		<div id="#{cc.clientId}" style="width: #{cc.attrs.width}px; height: #{cc.attrs.height}px">
+		<h:outputScript library="javascript" name="jquery.js" target="head" />
+		<h:outputScript library="javascript" name="jquery.flot.js"
+			target="head" />
+
+
+		<script
+			language="javascript" type="text/javascript"> 
+
+$(function () {
+
+	var fdata = #{cc.attrs.data}; 
+
+    $.plot($("##{cc.clientId}"), [
+        { label: "sin(x)",  data: fdata}
+    ], {
+        series: {
+    		lines: { show: true , fill: true},
+            points: { show: true }
+        },
+        xaxis: {
+            ticks: [0, [Math.PI/2, "\u03c0/2"], [Math.PI, "\u03c0"], [Math.PI * 3/2, "3\u03c0/2"], [Math.PI * 2, "2\u03c0"]]
+        },
+        yaxis: {
+            ticks: 10,
+            min: "#{cc.attrs.ymin}",
+            max: "#{cc.attrs.ymax}"
+        },
+        grid: {
+            backgroundColor: { colors: ["#fff", "#eee"] }
+        }
+    });
+});
+</script></div>
+	</composite:implementation>
+</ui:composition>
