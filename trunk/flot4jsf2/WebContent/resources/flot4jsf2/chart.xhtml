@@ -27,16 +27,6 @@
 		<composite:attribute name="yticks" required="false" />
 		<composite:attribute name="ymin" required="false" />
 		<composite:attribute name="ymax" required="false" />
-		
-		<composite:attribute name="data" required="false" />
-		
-		<composite:attribute name="type" required="true" />
-		
-		<composite:attribute name="label" required="false" />
-		<composite:attribute name="color" required="false" />
-		
-		<composite:attribute name="fill" required="false" />
-		<composite:attribute name="steps" required="false" />
 	</composite:interface>
 
 	<!-- IMPLEMENATION -->
@@ -50,9 +40,10 @@
 		<script
 			language="javascript" type="text/javascript"> 
 $(function () {
+
+	allData = new Array();
 	
-	fdata=#{dataSerializer.serialize(cc.attrs.data)};
-	flabel="#{cc.attrs.label}";
+	<composite:insertChildren />
 
 	yticks= "#{cc.attrs.ticks}";
 	if (yticks=="") yticks=null;
@@ -63,44 +54,18 @@ $(function () {
 	ymax = "#{cc.attrs.ymax}";
 	if (ymax=="") ymax=null;
 
-	scolor = "#{cc.attrs.color}";
-	if (scolor=="") scolor=null;
+	options = {
+	        yaxis: {
+	            ticks: yticks,
+	            min: ymin,
+	            max: ymax
+	        },
+	        grid: {
+	            backgroundColor: { colors: ["#fff", "#eee"] }
+	        }
+	    };
 
-	sfill = "#{cc.attrs.fill}";
-	if (sfill=="") sfill=false;
-
-	ssteps = "#{cc.attrs.steps}";
-	if (ssteps=="") ssteps=null;
-
-	ftype = "#{cc.attrs.type}";
-		fseries = new Object();
-	if (ftype.indexOf("lines") != -1)
-		fseries.lines= {show:true, fill: sfill, steps: ssteps};
-	if (ftype.indexOf("bars") != -1)
-		fseries.bars= {show:true, fill: sfill};
-	if (ftype.indexOf("dots") != -1)
-		fseries.points= {show:true};
-	if (scolor != null)
-		fseries.color=scolor;
-	
-    $.plot($("##{cc.clientId}"), [
-        { label: flabel,  data: fdata}
-    ], {
-        series: fseries,
-        //xaxis: {
-        //	min: -5,
-        //	max: 10
-            //ticks: [0, [Math.PI/2, "\u03c0/2"], [Math.PI, "\u03c0"], [Math.PI * 3/2, "3\u03c0/2"], [Math.PI * 2, "2\u03c0"]]
-        //},
-        yaxis: {
-            ticks: yticks,
-            min: ymin,
-            max: ymax
-        },
-        grid: {
-            backgroundColor: { colors: ["#fff", "#eee"] }
-        }
-    });
+    $.plot($("##{cc.clientId}"), allData , options);
 });
 </script></div>
 	</composite:implementation>
