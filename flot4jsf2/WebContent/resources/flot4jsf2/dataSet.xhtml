@@ -1,0 +1,55 @@
+<!-- 
+   Copyright 2010 flot4jsf2.
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+     http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+ -->
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:composite="http://java.sun.com/jsf/composite">
+
+	<!-- INTERFACE -->
+	<composite:interface>
+		<composite:attribute name="data" required="true" />
+		<composite:attribute name="type" required="true" />
+        <composite:attribute name="label" required="false" />
+		<composite:attribute name="color" required="false" />
+		<composite:attribute name="fill" required="false" />
+		<composite:attribute name="steps" required="false" />
+	</composite:interface>
+
+	<!-- IMPLEMENATION -->
+	<composite:implementation>
+		dataSet = new Object();
+		dataSet.data = #{dataSerializer.serialize(cc.attrs.data)};
+		dataSet.label = "#{cc.attrs.label}";
+		dataSet.color = "#{cc.attrs.color}"=="" ? null : "#{cc.attrs.color}";
+		
+		ssteps = "#{cc.attrs.steps}";
+		if (ssteps=="") ssteps=null;
+
+		sfill = "#{cc.attrs.fill}";
+		if (sfill=="") sfill=false;
+	
+		ftype = "#{cc.attrs.type}";
+		if (ftype.indexOf("lines") != -1)
+			dataSet.lines= {show:true, fill: sfill, steps: ssteps};
+		if (ftype.indexOf("bars") != -1)
+			dataSet.bars= {show:true, fill: sfill};
+		if (ftype.indexOf("dots") != -1)
+			dataSet.points= {show:true};
+	
+		allData.push(dataSet); 
+	</composite:implementation>
+</ui:composition>
