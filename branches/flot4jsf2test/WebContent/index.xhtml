@@ -12,10 +12,26 @@
 	</h:head>
 
 	<h:body>
-		<f4j2:chart width="320" height="240"
-			data="[[-2,-5],[0,3],[6,-4],[7,5]]"
-			label="data='[[-2,-5],[0,3],[6,-4],[7,5]]'" type="lines"
-			color="green" fill="true" />
+		<f4j2:chart width="320" height="240">
+			<f4j2:dataSet data="#{dataRandomizer.getSin()}" color="green"
+				label="sin" type="lines" />
+			<f4j2:dataSet data="#{dataRandomizer.getCos()}" color="red" label="cos"
+				type="line" />
+		</f4j2:chart>
+
+		<f4j2:chart width="320" height="240">
+			<f4j2:dataSet data="#{dataRandomizer.data}" label="type='dots'"
+				type="dots" />
+		</f4j2:chart>
+
+
+		<f4j2:chart width="320" height="240">
+			<f4j2:dataSet data="#{dataRandomizer.data}" color="green"
+				label="type='lines, dots' fill='true'' steps='true'"
+				type="lines, dots" fill="true" steps="true" />
+			<f4j2:dataSet data="#{dataRandomizer.data}" color="blue" type="lines"
+				label="type='lines'" />
+		</f4j2:chart>
 
 	</h:body>
 
