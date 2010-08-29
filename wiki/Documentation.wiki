@@ -49,10 +49,10 @@ public class SampleData implements Serializable {
 
 	private void generateData() {
 		int n = 10;
-		result = new Double[2][n];
+		data = new Double[2][n];
 		for (int i = 0; i < n; i++) {
-			result[0][i] = Math.random() * 10;
-			result[1][i] = Math.random() * 10;
+			data[0][i] = Math.random() * 10;
+			data[1][i] = Math.random() * 10;
 		}
 	}
 
