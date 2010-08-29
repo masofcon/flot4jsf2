@@ -11,8 +11,9 @@
 || yticks || Y axis value labels || false ||
 || ymin || min Y axis value || false ||
 || ymax || max Y axis value  || false ||
-|| xticks || X axis values labels || false ||
-|| data || data (format of data see below) || false ||
+
+== Data set attributes ==
+|| data || data (format of data see below) || true||
 || type || type of chart (see below) || true ||
 || label || legend text  || false ||
 || color || color of chart || false ||
@@ -34,13 +35,17 @@ Data is represented as 2-dimentional matrix.
 
 You can write it directly
 {{{
-<f4j2:chart width="320" height="240" *data="[[-2,-5],[0,3],[6,-4],[7,5]]"* type="lines" />
+<f4j2:chart width="320" height="240">
+      <f4j2:dataSet *data="[[-2,-5],[0,3],[6,-4],[7,5]]"* type="lines" />
+</f4j2:chart>
 }}}
 
 or get it from bean
 
 {{{
-<f4j2:chart width="320" height="240" *data="#{sampleData.data}"* type="lines" />
+<f4j2:chart width="320" height="240">
+      <f4j2:dataSet *data="#{sampleData.data}"* type="lines" />
+</f4j2:chart>
 }}}
 
 {{{
@@ -69,4 +74,4 @@ public class SampleData implements Serializable {
 
 }}}
 
-for more ditails see [http://code.google.com/p/flot4jsf2/wiki/Examples examples]
+for more details see [http://code.google.com/p/flot4jsf2/wiki/Examples examples]
