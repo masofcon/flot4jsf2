@@ -1,5 +1,5 @@
 #summary flot4jsf2 API
-#labels API
+#labels API,Featured
 
 = API =
 
