@@ -1,5 +1,5 @@
 #summary Examples of flot4jsf2 usage.
-#labels examples,chart,charttypes,barchart,linechart,dotschart
+#labels examples,chart,charttypes,barchart,linechart,dotschart,Featured
 
 == Single data serie ==
 === Bar chart ===
