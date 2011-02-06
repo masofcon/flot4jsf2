@@ -36,7 +36,7 @@ Data is represented as 2-dimentional matrix.
 You can write it directly
 {{{
 <f4j2:chart width="320" height="240">
-      <f4j2:dataSet *data="[[-2,-5],[0,3],[6,-4],[7,5]]"* type="lines" />
+      <f4j2:dataSet data="[[-2,-5],[0,3],[6,-4],[7,5]]" type="lines" />
 </f4j2:chart>
 }}}
 
@@ -44,7 +44,7 @@ or get it from bean
 
 {{{
 <f4j2:chart width="320" height="240">
-      <f4j2:dataSet *data="#{sampleData.data}"* type="lines" />
+      <f4j2:dataSet data="#{sampleData.data}" type="lines" />
 </f4j2:chart>
 }}}
 
