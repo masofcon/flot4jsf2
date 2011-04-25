@@ -3,6 +3,7 @@
 
 = API =
 
+Component namespace: http://java.sun.com/jsf/composite/flot4jsf2
 
 == Chart component's attributes ==
 || *Attribute* || *Description* || *Mondatory* ||
